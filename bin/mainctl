@@ -20,8 +20,8 @@ fi
 
 if [ "$1" = "build" ]; then
     set -x
-    docker build -rm -t binaryage/electrum-bitcoind bitcoind
-    docker build -rm -t binaryage/electrum-server electrum
+    docker build --rm -t binaryage/electrum-bitcoind bitcoind
+    docker build --rm -t binaryage/electrum-server electrum
 elif [ "$1" == "setup" ]; then
     set -x
     mkdir -p "$HOST_BITCOIND_DATA_DIR"

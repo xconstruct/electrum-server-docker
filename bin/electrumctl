@@ -6,7 +6,7 @@ cd "$(dirname "$(readlink -f $0)")"/..
 
 START="\
   sudo docker run 
-    -link $BITCOIND_NODE_CONTAINER_NAME:bitcoind \
+    --link $BITCOIND_NODE_CONTAINER_NAME:bitcoind \
     -v $HOST_ELECTRUM_LEVELDB_DIR:/electrum/leveldb \
     -v $HOST_ELECTRUM_DATA_DIR:/electrum/data \
     -v $HOST_ELECTRUM_CERT_DIR:/electrum/cert \
@@ -23,7 +23,7 @@ START="\
 "
 
 if [ "$1" = "serve" ]; then
-    START="$START -d -name $ELECTRUM_SERVER_CONTAINER_NAME"
+    START="$START -d --name $ELECTRUM_SERVER_CONTAINER_NAME"
 fi
 
 set -x
