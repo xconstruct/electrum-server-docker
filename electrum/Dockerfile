@@ -1,9 +1,9 @@
-FROM ubuntu:12.10
+FROM ubuntu:14.04
 MAINTAINER Antonin Hildebrand <antonin@binaryage.com>
 
 RUN apt-get update
-RUN apt-get install -y python-leveldb python-setuptools python-pip python-openssl git
-RUN pip install jsonrpclib
+RUN apt-get install -y g++ git python-dev python-setuptools python-openssl python-leveldb libleveldb-dev
+RUN easy_install jsonrpclib plyvel
 
 ADD	. /electrum
 WORKDIR /electrum
